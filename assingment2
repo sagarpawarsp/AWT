@@ -1,0 +1,11 @@
+function asyfun(callback) {
+    setTimeout(() => {
+      callback(null, "program run success");
+    }, 500);
+  }
+  const asypro = () => new Promise((resolve, reject) =>
+   asyfun((err, result) => err ? reject(err) : resolve(result)));
+  asypro()
+    .then(result => console.log(result))
+    .catch(error => console.error("Error:", error));
+  
